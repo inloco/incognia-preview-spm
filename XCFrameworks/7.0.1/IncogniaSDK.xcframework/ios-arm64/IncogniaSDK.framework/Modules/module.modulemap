@@ -1,0 +1,4 @@
+framework module IncogniaSDK {
+  header "IncogniaSDK-Swift.h"
+  requires objc
+}

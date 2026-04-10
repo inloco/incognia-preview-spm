@@ -19,7 +19,7 @@ let package = Package(
         ),
         .binaryTarget(
             name: "IncogniaSDK",
-            path: "XCFrameworks/7.0.0/IncogniaSDK.xcframework"
+            path: "XCFrameworks/7.0.1/IncogniaSDK.xcframework"
         ),
     ]
 )

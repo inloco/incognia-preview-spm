@@ -1,0 +1,18 @@
+{
+  "event": "security_override",
+  "timestamp": "2026-04-10T14:45:23.940134",
+  "user": "larissa.navarro@incognia.com",
+  "branch": "release/7.0.1",
+  "files": [
+    "XCFrameworks/7.0.1/IncogniaSDK.xcframework/ios-arm64_x86_64-simulator/IncogniaSDK.framework/Modules/IncogniaSDK.swiftmodule/x86_64-apple-ios-simulator.abi.json",
+    "XCFrameworks/7.0.1/IncogniaSDK.xcframework/ios-arm64/IncogniaSDK.framework/Modules/IncogniaSDK.swiftmodule/arm64-apple-ios.abi.json",
+    "XCFrameworks/7.0.1/IncogniaSDK.xcframework/ios-arm64_x86_64-simulator/IncogniaSDK.framework/Modules/IncogniaSDK.swiftmodule/arm64-apple-ios-simulator.abi.json",
+    "XCFrameworks/7.0.1/IncogniaSDK.xcframework/ios-arm64/IncogniaSDK.framework/IncogniaSDK",
+    "XCFrameworks/7.0.1/IncogniaSDK.xcframework/ios-arm64_x86_64-simulator/IncogniaSDK.framework/IncogniaSDK"
+  ],
+  "detectors": [
+    "Gitleaks",
+    "Geocode"
+  ],
+  "secrets_found": 621
+}

@@ -1,0 +1,494 @@
+// swift-interface-format-version: 1.0
+// swift-compiler-version: Apple Swift version 6.0.3 effective-5.10 (swiftlang-6.0.3.1.10 clang-1600.0.30.1)
+// swift-module-flags: -target arm64-apple-ios15.0-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -enable-bare-slash-regex -module-name IncogniaSDK
+// swift-module-flags-ignorable: -no-verify-emitted-module-interface
+import AVFoundation
+import AdSupport
+import AppTrackingTransparency
+import SystemConfiguration.CaptiveNetwork
+import CommonCrypto
+import Compression
+import Contacts
+import CoreData
+import CoreLocation
+import CoreTelephony
+import CryptoKit
+import Darwin
+import DeviceCheck
+import Foundation
+import GameController
+import LocalAuthentication
+import MachO
+import Network
+import NetworkExtension
+import OSLog
+import Swift
+import Synchronization
+import SystemConfiguration
+import UIKit
+import _Concurrency
+import _StringProcessing
+import _SwiftConcurrencyShims
+@objc(ICGCardInfo) public class CardInfo : ObjectiveC.NSObject {
+  @objc final public let bin: Swift.String
+  @objc final public let lastFourDigits: Swift.String
+  @objc final public let expiryYear: Swift.String?
+  @objc final public let expiryMonth: Swift.String?
+  @objc public init(bin: Swift.String, lastFourDigits: Swift.String, expiryYear: Swift.String? = nil, expiryMonth: Swift.String? = nil)
+  @_inheritsConvenienceInitializers @objc(ICGCardInfoBuilder) public class _CardInfoBuilder : ObjectiveC.NSObject {
+    @objc public var bin: Swift.String
+    @objc public var lastFourDigits: Swift.String
+    @objc public var expiryYear: Swift.String?
+    @objc public var expiryMonth: Swift.String?
+    @objc public func build() -> IncogniaSDK.CardInfo
+    @objc override dynamic public init()
+    @objc deinit
+  }
+  @objc deinit
+}
+@objc public class EventAddress : ObjectiveC.NSObject {
+  public var locale: Foundation.Locale? {
+    get
+  }
+  public var countryCode: Swift.String? {
+    get
+  }
+  public var countryName: Swift.String? {
+    get
+  }
+  public var state: Swift.String? {
+    get
+  }
+  public var city: Swift.String? {
+    get
+  }
+  public var neighborhood: Swift.String? {
+    get
+  }
+  public var number: Swift.String? {
+    get
+  }
+  public var street: Swift.String? {
+    get
+  }
+  public var postalCode: Swift.String? {
+    get
+  }
+  public var addressLine: Swift.String? {
+    get
+  }
+  public var latitude: Swift.Double? {
+    get
+  }
+  public var longitude: Swift.Double? {
+    get
+  }
+  public init(addressLine: Swift.String)
+  public init(latitude: Swift.Double, longitude: Swift.Double)
+  public init(clplacemark: CoreLocation.CLPlacemark, locale: Foundation.Locale? = nil)
+  public init(locale: Foundation.Locale? = nil, countryCode: Swift.String? = nil, countryName: Swift.String? = nil, state: Swift.String? = nil, city: Swift.String? = nil, neighborhood: Swift.String? = nil, number: Swift.String? = nil, street: Swift.String? = nil, postalCode: Swift.String? = nil, addressLine: Swift.String? = nil, latitude: Swift.Double? = nil, longitude: Swift.Double? = nil)
+  @objc deinit
+}
+@objc public class EventLocation : ObjectiveC.NSObject {
+  final public let latitude: Swift.Double
+  final public let longitude: Swift.Double
+  final public let timestamp: Swift.Int64?
+  public init(location: CoreLocation.CLLocation)
+  @objc deinit
+}
+public class EventProperties {
+  public init()
+  @objc public func getDict() -> [Swift.String : Any]
+  public func setValue(_ value: Swift.Int, forKey key: Swift.String)
+  public func setValue(_ value: Swift.Int64, forKey key: Swift.String)
+  public func setValue(_ value: Swift.Double, forKey key: Swift.String)
+  public func setValue(_ value: Swift.Bool, forKey key: Swift.String)
+  public func setValue(_ value: Swift.String, forKey key: Swift.String)
+  public func removeValue(forKey key: Swift.String)
+  public func toString() -> Swift.String
+  public subscript(key: Swift.String) -> Swift.Int? {
+    get
+    set
+  }
+  public subscript(key: Swift.String) -> Swift.Int64? {
+    get
+    set
+  }
+  public subscript(key: Swift.String) -> Swift.Double? {
+    get
+    set
+  }
+  public subscript(key: Swift.String) -> Swift.Bool? {
+    get
+    set
+  }
+  public subscript(key: Swift.String) -> Swift.String? {
+    get
+    set
+  }
+  @objc deinit
+}
+final public class Atomic<Value> {
+  final public var value: Value {
+    get
+    set(newValue)
+  }
+  public init(_ value: Value)
+  final public func modify<Result>(_ action: (inout Value) throws -> Result) rethrows -> Result
+  @discardableResult
+  final public func withValue<Result>(_ action: (Value) throws -> Result) rethrows -> Result
+  @discardableResult
+  final public func swap(_ newValue: Value) -> Value
+  @discardableResult
+  final public func ufvixlhdsgxlkvrwpzknqtfe(expected: Value, newValue: Value) -> Swift.Bool where Value : Swift.Equatable
+  @objc deinit
+}
+@_inheritsConvenienceInitializers @objc(ICGIncognia) public class Incognia : ObjectiveC.NSObject {
+  @objc(initSdk) public class func _objc_initSdk()
+  @objc public class func initSdk(withOptions options: IncogniaSDK.IncogniaOptions? = nil)
+  @objc public class func generateRequestTokenWithStatusSync(timeout: Swift.UInt64 = 5_000) -> IncogniaSDK.RequestTokenWithStatus
+  @objc public class func generateRequestTokenWithStatus(timeout: Swift.UInt64 = 0, completion: @escaping (IncogniaSDK.RequestTokenWithStatus) -> Swift.Void)
+  @objc public class func setAccountId(_ accountId: Swift.String?)
+  @objc public class func clearAccountId()
+  @objc public class func sendTestEvent()
+  public class func sendCustomEvent(accountId: Swift.String? = nil, externalId: Swift.String? = nil, address: IncogniaSDK.EventAddress? = nil, tag: Swift.String? = nil, properties: IncogniaSDK.EventProperties? = nil, status: Swift.String? = nil)
+  @objc(sendCustomEventWithAccountId:externalId:address:tag:properties:status:) public class func _objc_sendCustomEvent(accountId: Swift.String? = nil, externalId: Swift.String? = nil, address: IncogniaSDK._EventAddress? = nil, tag: Swift.String? = nil, properties: IncogniaSDK._EventProperties? = nil, status: Swift.String? = nil)
+  @objc(sendCustomEvent:) public class func _objc_sendCustomEvent(_ customEvent: IncogniaSDK._CustomEvent)
+  public class func sendLoginEvent(accountId: Swift.String, externalId: Swift.String? = nil, location: IncogniaSDK.EventLocation? = nil, status: Swift.String? = nil, tag: Swift.String? = nil, properties: IncogniaSDK.EventProperties? = nil)
+  @objc(sendLoginEventWithAccountId:externalId:location:status:tag:properties:) public class func _objc_sendLoginEvent(accountId: Swift.String, externalId: Swift.String? = nil, location: IncogniaSDK._EventLocation? = nil, status: Swift.String? = nil, tag: Swift.String? = nil, properties: IncogniaSDK._EventProperties? = nil)
+  @objc(sendLoginEvent:) public class func _objc_sendLoginEvent(_ loginEvent: IncogniaSDK._LoginEvent)
+  public class func sendOnboardingEvent(accountId: Swift.String? = nil, externalId: Swift.String? = nil, address: IncogniaSDK.EventAddress? = nil, tag: Swift.String? = nil, properties: IncogniaSDK.EventProperties? = nil, status: Swift.String? = nil)
+  @objc(sendOnboardingEventWithAccountId:externalId:address:tag:properties:status:) public class func _objc_sendOnboardingEvent(accountId: Swift.String? = nil, externalId: Swift.String? = nil, address: IncogniaSDK._EventAddress? = nil, tag: Swift.String? = nil, properties: IncogniaSDK._EventProperties? = nil, status: Swift.String? = nil)
+  @objc(sendOnboardingEvent:) public class func _objc_sendOnboardingEvent(_ onboardingEvent: IncogniaSDK._OnboardingEvent)
+  public class func sendPaymentEvent(accountId: Swift.String, externalId: Swift.String? = nil, location: IncogniaSDK.EventLocation? = nil, addresses: [IncogniaSDK.PaymentAddress]? = nil, paymentValue: IncogniaSDK.PaymentValue? = nil, paymentCoupon: IncogniaSDK.PaymentCoupon? = nil, paymentMethods: [IncogniaSDK.PaymentMethod]? = nil, storeId: Swift.String? = nil, tag: Swift.String? = nil, properties: IncogniaSDK.EventProperties? = nil, status: Swift.String? = nil)
+  @objc(sendPaymentEventWithAccountId:externalId:location:addresses:paymentValue:paymentCoupon:paymentMethods:paymentMethodIdentifier:tag:properties:status:) public class func _objc_sendPaymentEvent(accountId: Swift.String, externalId: Swift.String? = nil, location: IncogniaSDK._EventLocation? = nil, addresses: [IncogniaSDK._PaymentAddress]? = nil, paymentValue: IncogniaSDK._PaymentValue? = nil, paymentCoupon: IncogniaSDK._PaymentCoupon? = nil, paymentMethods: [IncogniaSDK.PaymentMethod]? = nil, storeId: Swift.String? = nil, tag: Swift.String? = nil, properties: IncogniaSDK._EventProperties? = nil, status: Swift.String? = nil)
+  @objc(sendPaymentEvent:) public class func _objc_sendPaymentEvent(_ paymentEvent: IncogniaSDK._PaymentEvent)
+  @objc public class func setLocationEnabled(_ enabled: Swift.Bool)
+  @objc public class func reportBusinessUnitId(_ aflwgagwdzjzelfuftbtxxvbwyohq: Swift.String)
+  @available(*, unavailable)
+  @objc override dynamic public init()
+  @objc deinit
+}
+@objc(ICGIncogniaOptions) public class IncogniaOptions : ObjectiveC.NSObject, Swift.Codable {
+  @objc final public let applicationId: Swift.String
+  @objc final public let logEnabled: Swift.Bool
+  @objc final public let locationEnabled: Swift.Bool
+  @objc final public let urlSchemesCheckEnabled: Swift.Bool
+  @objc final public let requestTokenMaxLength: Swift.Int
+  @objc public init(applicationId: Swift.String, logEnabled: Swift.Bool = false, locationEnabled: Swift.Bool = true, urlSchemesCheckEnabled: Swift.Bool = false, requestTokenMaxLength: Swift.Int = 8_000)
+  @_inheritsConvenienceInitializers @objc(ICGIncogniaOptionsBuilder) public class _IncogniaOptionsBuilder : ObjectiveC.NSObject {
+    @objc public var applicationId: Swift.String
+    @objc public var logEnabled: Swift.Bool
+    @objc public var locationEnabled: Swift.Bool
+    @objc public var urlSchemesCheckEnabled: Swift.Bool
+    @objc public var requestTokenMaxLength: Swift.Int
+    @objc public func build() -> IncogniaSDK.IncogniaOptions
+    @objc override dynamic public init()
+    @objc deinit
+  }
+  @objc deinit
+  public func encode(to encoder: any Swift.Encoder) throws
+  required public init(from decoder: any Swift.Decoder) throws
+}
+@objc public class PaymentAddress : ObjectiveC.NSObject {
+  final public let type: Swift.String
+  final public let address: IncogniaSDK.EventAddress
+  public init(type: Swift.String, address: IncogniaSDK.EventAddress)
+  public static func billingAddress(_ eventAddress: IncogniaSDK.EventAddress) -> IncogniaSDK.PaymentAddress
+  public static func homeAddress(_ eventAddress: IncogniaSDK.EventAddress) -> IncogniaSDK.PaymentAddress
+  public static func shippingAddress(_ eventAddress: IncogniaSDK.EventAddress) -> IncogniaSDK.PaymentAddress
+  @objc deinit
+}
+@objc public class PaymentCoupon : ObjectiveC.NSObject {
+  public static let percentOffType: Swift.String
+  public static let fixedValueType: Swift.String
+  final public let type: Swift.String
+  final public let value: Swift.Double?
+  final public let maxDiscount: Swift.Double?
+  final public let id: Swift.String?
+  final public let name: Swift.String?
+  public init(type: Swift.String, value: Swift.Double? = nil, maxDiscount: Swift.Double? = nil, id: Swift.String? = nil, name: Swift.String? = nil)
+  @objc deinit
+}
+@objc(ICGPaymentMethod) public class PaymentMethod : ObjectiveC.NSObject {
+  @objc public static let creditCardType: Swift.String
+  @objc public static let debitCardType: Swift.String
+  @objc public static let applePayType: Swift.String
+  @objc public static let googlePayType: Swift.String
+  @objc public static let nuPayType: Swift.String
+  @objc public static let pixType: Swift.String
+  @objc public static let mealVoucherType: Swift.String
+  @objc public static let visaBrand: Swift.String
+  @objc public static let mastercardBrand: Swift.String
+  @objc public static let americanExpressBrand: Swift.String
+  @objc public static let tarjetaNaranjaBrand: Swift.String
+  @objc public static let cabalBrand: Swift.String
+  @objc public static let argencardBrand: Swift.String
+  @objc final public let type: Swift.String
+  @objc final public let identifier: Swift.String?
+  @objc final public let brand: Swift.String?
+  @objc final public let creditCardInfo: IncogniaSDK.CardInfo?
+  @objc final public let debitCardInfo: IncogniaSDK.CardInfo?
+  @objc public init(type: Swift.String, identifier: Swift.String? = nil, brand: Swift.String? = nil, creditCardInfo: IncogniaSDK.CardInfo? = nil, debitCardInfo: IncogniaSDK.CardInfo? = nil)
+  @_inheritsConvenienceInitializers @objc(ICGPaymentMethodBuilder) public class _PaymentMethodBuilder : ObjectiveC.NSObject {
+    @objc public var type: Swift.String
+    @objc public var identifier: Swift.String?
+    @objc public var brand: Swift.String?
+    @objc public var creditCardInfo: IncogniaSDK.CardInfo?
+    @objc public var debitCardInfo: IncogniaSDK.CardInfo?
+    @objc public func build() -> IncogniaSDK.PaymentMethod
+    @objc override dynamic public init()
+    @objc deinit
+  }
+  @objc deinit
+}
+public class PaymentValue {
+  final public let amount: Swift.Double
+  final public let currency: Swift.String?
+  final public let installments: Swift.Int32?
+  final public let discountAmount: Swift.Double?
+  public init(amount: Swift.Double, currency: Swift.String? = nil, installments: Swift.Int32? = nil, discountAmount: Swift.Double? = nil)
+  @objc deinit
+}
+@objc(ICGRequestTokenStatus) public enum RequestTokenStatus : Swift.Int {
+  case sdkNotInitialized = 0
+  case tokenCallSyncOnMainThread = 1
+  case timeout = 2
+  case internalError = 3
+  case success = 4
+  case dataCollectionDisabled = 5
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+@objc(ICGRequestTokenWithStatus) public class RequestTokenWithStatus : ObjectiveC.NSObject {
+  @objc final public let token: Swift.String
+  @objc final public let status: IncogniaSDK.RequestTokenStatus
+  @objc public init(token: Swift.String, status: IncogniaSDK.RequestTokenStatus)
+  @objc deinit
+}
+@objc(ICGCustomEvent) public class _CustomEvent : ObjectiveC.NSObject {
+  @objc final public let accountId: Swift.String?
+  @objc final public let externalId: Swift.String?
+  @objc final public let address: IncogniaSDK._EventAddress?
+  @objc final public let tag: Swift.String?
+  @objc final public let properties: IncogniaSDK._EventProperties?
+  @objc final public let status: Swift.String?
+  @objc public init(accountId: Swift.String? = nil, externalId: Swift.String? = nil, address: IncogniaSDK._EventAddress? = nil, tag: Swift.String? = nil, properties: IncogniaSDK._EventProperties? = nil, status: Swift.String? = nil)
+  @_inheritsConvenienceInitializers @objc(ICGCustomEventBuilder) public class _CustomEventBuilder : ObjectiveC.NSObject {
+    @objc public var accountId: Swift.String?
+    @objc public var externalId: Swift.String?
+    @objc public var address: IncogniaSDK._EventAddress?
+    @objc public var tag: Swift.String?
+    @objc public var properties: IncogniaSDK._EventProperties?
+    @objc public var status: Swift.String?
+    @objc public func build() -> IncogniaSDK._CustomEvent
+    @objc override dynamic public init()
+    @objc deinit
+  }
+  @objc deinit
+}
+@objc(ICGEventAddress) public class _EventAddress : ObjectiveC.NSObject {
+  @objc public var locale: Foundation.Locale? {
+    get
+  }
+  @objc public var countryCode: Swift.String? {
+    get
+  }
+  @objc public var countryName: Swift.String? {
+    get
+  }
+  @objc public var state: Swift.String? {
+    get
+  }
+  @objc public var city: Swift.String? {
+    get
+  }
+  @objc public var neighborhood: Swift.String? {
+    get
+  }
+  @objc public var number: Swift.String? {
+    get
+  }
+  @objc public var street: Swift.String? {
+    get
+  }
+  @objc public var postalCode: Swift.String? {
+    get
+  }
+  @objc public var addressLine: Swift.String? {
+    get
+  }
+  @objc public var latitude: Foundation.NSNumber? {
+    get
+  }
+  @objc public var longitude: Foundation.NSNumber? {
+    get
+  }
+  @objc public init(addressLine: Swift.String)
+  @objc public init(latitude: Foundation.NSNumber, longitude: Foundation.NSNumber)
+  @objc public init(clplacemark: CoreLocation.CLPlacemark, locale: Foundation.Locale? = nil)
+  @objc public init(locale: Foundation.Locale? = nil, countryCode: Swift.String? = nil, countryName: Swift.String? = nil, state: Swift.String? = nil, city: Swift.String? = nil, neighborhood: Swift.String? = nil, number: Swift.String? = nil, street: Swift.String? = nil, postalCode: Swift.String? = nil, addressLine: Swift.String? = nil, latitude: Foundation.NSNumber? = nil, longitude: Foundation.NSNumber? = nil)
+  @_inheritsConvenienceInitializers @objc(ICGEventAddressBuilder) public class _EventAddressBuilder : ObjectiveC.NSObject {
+    @objc public var locale: Foundation.Locale?
+    @objc public var countryCode: Swift.String?
+    @objc public var countryName: Swift.String?
+    @objc public var state: Swift.String?
+    @objc public var city: Swift.String?
+    @objc public var neighborhood: Swift.String?
+    @objc public var number: Swift.String?
+    @objc public var street: Swift.String?
+    @objc public var postalCode: Swift.String?
+    @objc public var addressLine: Swift.String?
+    @objc public var latitude: Foundation.NSNumber?
+    @objc public var longitude: Foundation.NSNumber?
+    @objc public func build() -> IncogniaSDK._EventAddress
+    @objc override dynamic public init()
+    @objc deinit
+  }
+  @objc deinit
+}
+@objc(ICGEventLocation) public class _EventLocation : ObjectiveC.NSObject {
+  @objc final public let latitude: Swift.Double
+  @objc final public let longitude: Swift.Double
+  @objc final public let timestamp: Foundation.NSNumber?
+  @objc public init(location: CoreLocation.CLLocation)
+  @objc deinit
+}
+@_inheritsConvenienceInitializers @objc(ICGEventProperties) public class _EventProperties : ObjectiveC.NSObject {
+  @objc override dynamic public init()
+  @objc public func getDict() -> [Swift.String : Any]
+  @objc public func setIntValue(_ value: Swift.Int, forKey key: Swift.String)
+  @objc public func setInt64Value(_ value: Swift.Int64, forKey key: Swift.String)
+  @objc public func setDoubleValue(_ value: Swift.Double, forKey key: Swift.String)
+  @objc public func setBoolValue(_ value: Swift.Bool, forKey key: Swift.String)
+  @objc public func setStringValue(_ value: Swift.String, forKey key: Swift.String)
+  @objc public func removeValue(forKey key: Swift.String)
+  @objc public func toString() -> Swift.String
+  @objc deinit
+}
+@objc(ICGLoginEvent) public class _LoginEvent : ObjectiveC.NSObject {
+  @objc final public let accountId: Swift.String
+  @objc final public let externalId: Swift.String?
+  @objc final public let location: IncogniaSDK._EventLocation?
+  @objc final public let status: Swift.String?
+  @objc final public let tag: Swift.String?
+  @objc final public let properties: IncogniaSDK._EventProperties?
+  @objc public init(accountId: Swift.String, externalId: Swift.String? = nil, location: IncogniaSDK._EventLocation? = nil, status: Swift.String? = nil, tag: Swift.String? = nil, properties: IncogniaSDK._EventProperties? = nil)
+  @_inheritsConvenienceInitializers @objc(ICGLoginEventBuilder) public class _LoginEventBuilder : ObjectiveC.NSObject {
+    @objc public var accountId: Swift.String
+    @objc public var externalId: Swift.String?
+    @objc public var location: IncogniaSDK._EventLocation?
+    @objc public var status: Swift.String?
+    @objc public var tag: Swift.String?
+    @objc public var properties: IncogniaSDK._EventProperties?
+    @objc public func build() -> IncogniaSDK._LoginEvent
+    @objc override dynamic public init()
+    @objc deinit
+  }
+  @objc deinit
+}
+@objc(ICGOnboardingEvent) public class _OnboardingEvent : ObjectiveC.NSObject {
+  @objc final public let accountId: Swift.String?
+  @objc final public let externalId: Swift.String?
+  @objc final public let address: IncogniaSDK._EventAddress?
+  @objc final public let tag: Swift.String?
+  @objc final public let properties: IncogniaSDK._EventProperties?
+  @objc final public let status: Swift.String?
+  @objc public init(accountId: Swift.String?, externalId: Swift.String? = nil, address: IncogniaSDK._EventAddress? = nil, tag: Swift.String? = nil, properties: IncogniaSDK._EventProperties? = nil, status: Swift.String? = nil)
+  @_inheritsConvenienceInitializers @objc(ICGOnboardingEventBuilder) public class _OnboardingEventBuilder : ObjectiveC.NSObject {
+    @objc public var accountId: Swift.String?
+    @objc public var externalId: Swift.String?
+    @objc public var address: IncogniaSDK._EventAddress?
+    @objc public var tag: Swift.String?
+    @objc public var properties: IncogniaSDK._EventProperties?
+    @objc public var status: Swift.String?
+    @objc public func build() -> IncogniaSDK._OnboardingEvent
+    @objc override dynamic public init()
+    @objc deinit
+  }
+  @objc deinit
+}
+@objc(ICGPaymentAddress) public class _PaymentAddress : ObjectiveC.NSObject {
+  @objc final public let type: Swift.String
+  @objc final public let address: IncogniaSDK._EventAddress
+  @objc public init(type: Swift.String, address: IncogniaSDK._EventAddress)
+  @objc public static func billingAddress(_ eventAddress: IncogniaSDK._EventAddress) -> IncogniaSDK._PaymentAddress
+  @objc public static func homeAddress(_ eventAddress: IncogniaSDK._EventAddress) -> IncogniaSDK._PaymentAddress
+  @objc public static func shippingAddress(_ eventAddress: IncogniaSDK._EventAddress) -> IncogniaSDK._PaymentAddress
+  @objc deinit
+}
+@objc(ICGPaymentCoupon) public class _PaymentCoupon : ObjectiveC.NSObject {
+  @objc public static let percentOffType: Swift.String
+  @objc public static let fixedValueType: Swift.String
+  @objc final public let type: Swift.String
+  @objc final public let value: Foundation.NSNumber?
+  @objc final public let maxDiscount: Foundation.NSNumber?
+  @objc final public let id: Swift.String?
+  @objc final public let name: Swift.String?
+  @objc public init(type: Swift.String, value: Foundation.NSNumber? = nil, maxDiscount: Foundation.NSNumber? = nil, id: Swift.String? = nil, name: Swift.String? = nil)
+  @_inheritsConvenienceInitializers @objc(ICGPaymentCouponBuilder) public class _PaymentCouponBuilder : ObjectiveC.NSObject {
+    @objc public var type: Swift.String
+    @objc public var value: Foundation.NSNumber?
+    @objc public var maxDiscount: Foundation.NSNumber?
+    @objc public var id: Swift.String?
+    @objc public var name: Swift.String?
+    @objc public func build() -> IncogniaSDK._PaymentCoupon
+    @objc override dynamic public init()
+    @objc deinit
+  }
+  @objc deinit
+}
+@objc(ICGPaymentEvent) public class _PaymentEvent : ObjectiveC.NSObject {
+  @objc final public let accountId: Swift.String
+  @objc final public let externalId: Swift.String?
+  @objc final public let location: IncogniaSDK._EventLocation?
+  @objc final public let addresses: [IncogniaSDK._PaymentAddress]?
+  @objc final public let paymentValue: IncogniaSDK._PaymentValue?
+  @objc final public let paymentCoupon: IncogniaSDK._PaymentCoupon?
+  @objc final public let paymentMethods: [IncogniaSDK.PaymentMethod]?
+  @objc final public let storeId: Swift.String?
+  @objc final public let tag: Swift.String?
+  @objc final public let properties: IncogniaSDK._EventProperties?
+  @objc final public let status: Swift.String?
+  @objc public init(accountId: Swift.String, externalId: Swift.String? = nil, location: IncogniaSDK._EventLocation? = nil, addresses: [IncogniaSDK._PaymentAddress]? = nil, paymentValue: IncogniaSDK._PaymentValue? = nil, paymentCoupon: IncogniaSDK._PaymentCoupon? = nil, paymentMethods: [IncogniaSDK.PaymentMethod]? = nil, storeId: Swift.String? = nil, tag: Swift.String? = nil, properties: IncogniaSDK._EventProperties? = nil, status: Swift.String? = nil)
+  @_inheritsConvenienceInitializers @objc(ICGPaymentEventBuilder) public class _PaymentEventBuilder : ObjectiveC.NSObject {
+    @objc public var accountId: Swift.String
+    @objc public var externalId: Swift.String?
+    @objc public var location: IncogniaSDK._EventLocation?
+    @objc public var addresses: [IncogniaSDK._PaymentAddress]?
+    @objc public var paymentValue: IncogniaSDK._PaymentValue?
+    @objc public var paymentCoupon: IncogniaSDK._PaymentCoupon?
+    @objc public var paymentMethods: [IncogniaSDK.PaymentMethod]?
+    @objc public var storeId: Swift.String?
+    @objc public var tag: Swift.String?
+    @objc public var properties: IncogniaSDK._EventProperties?
+    @objc public var status: Swift.String?
+    @objc public func build() -> IncogniaSDK._PaymentEvent
+    @objc override dynamic public init()
+    @objc deinit
+  }
+  @objc deinit
+}
+@objc(ICGPaymentValue) public class _PaymentValue : ObjectiveC.NSObject {
+  @objc final public let amount: Swift.Double
+  @objc final public let currency: Swift.String?
+  @objc final public let installments: Foundation.NSNumber?
+  @objc final public let discountAmount: Foundation.NSNumber?
+  @objc public init(amount: Swift.Double, currency: Swift.String? = nil, installments: Foundation.NSNumber? = nil, discountAmount: Foundation.NSNumber? = nil)
+  @_inheritsConvenienceInitializers @objc(ICGPaymentValueBuilder) public class _PaymentValueBuilder : ObjectiveC.NSObject {
+    @objc public var amount: Swift.Double
+    @objc public var currency: Swift.String?
+    @objc public var installments: Foundation.NSNumber?
+    @objc public var discountAmount: Foundation.NSNumber?
+    @objc public func build() -> IncogniaSDK._PaymentValue
+    @objc override dynamic public init()
+    @objc deinit
+  }
+  @objc deinit
+}
+extension IncogniaSDK.RequestTokenStatus : Swift.Equatable {}
+extension IncogniaSDK.RequestTokenStatus : Swift.Hashable {}
+extension IncogniaSDK.RequestTokenStatus : Swift.RawRepresentable {}

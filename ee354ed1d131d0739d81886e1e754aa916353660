@@ -1,0 +1,14 @@
+{
+  "event": "security_override",
+  "timestamp": "2026-09-02T18:04:54.465114+00:00",
+  "user": "larissa.navarro@incognia.com",
+  "branch": "release/7.0.2",
+  "files": [
+    "XCFrameworks/7.0.2/IncogniaSDK.xcframework/ios-arm64_x86_64-simulator/IncogniaSDK.framework/IncogniaSDK",
+    "XCFrameworks/7.0.2/IncogniaSDK.xcframework/ios-arm64/IncogniaSDK.framework/IncogniaSDK"
+  ],
+  "detectors": [
+    "Juro"
+  ],
+  "secrets_found": 7
+}
